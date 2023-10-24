@@ -1,0 +1,22 @@
+{
+  "title": "Ruoyi Java Demo For Guance",
+  "description": "Apply ruoyi demo on kubernetes for guance in all steps",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Apply DataKit",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
