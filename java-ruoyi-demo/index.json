@@ -12,6 +12,11 @@
         "verify": "step1/verify.sh"
       }
     ],
+    "assets": {
+      "host01": [
+        {"file": "datakiy.yaml", "target": "/root", "chmod": "+w"}
+      ]
+    },
     "finish": {
       "text": "finish.md"
     }
