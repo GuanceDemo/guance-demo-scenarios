@@ -14,7 +14,7 @@
     ],
     "assets": {
       "host01": [
-        {"file": "datakiy.yaml", "target": "/root", "chmod": "+w"}
+        {"file": "datakit.yaml", "target": "/root", "chmod": "+w"}
       ]
     },
     "finish": {
