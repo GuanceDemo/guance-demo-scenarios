@@ -26,7 +26,7 @@ data:
         "admission_inject": {
             "ddtrace": {
                 "images": {
-                    "java_agent_image":   "pubrepo.guance.com/datakit-operator/dd-lib-java-init:v1.20.2-guance",
+                    "java_agent_image":   "ghcr.io/harlonhuang/dd-lib-java-init:v1.20.2-guance",
                     "python_agent_image": "pubrepo.guance.com/datakit-operator/dd-lib-python-init:v1.6.2",
                     "js_agent_image":     "pubrepo.guance.com/datakit-operator/dd-lib-js-init:v3.9.2"
                 },
@@ -88,7 +88,7 @@ spec:
     spec:
       containers:
         - name: operator
-          image: pubrepo.guance.com/datakit-operator/datakit-operator:v1.4.2
+          image: ghcr.io/harlonhuang/datakit-operator:v1.4.2
           imagePullPolicy: Always
           env:
           - name: ENV_JSON_CONFIG
