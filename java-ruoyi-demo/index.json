@@ -1,6 +1,6 @@
 {
   "title": "Ruoyi Java Demo For Guance",
-  "description": "Apply ruoyi demo on kubernetes for guance in all steps",
+  "description": "Apply ruoyi demo on kubernetes for Guance",
   "details": {
     "intro": {
       "text": "intro.md"
@@ -14,7 +14,9 @@
     ],
     "assets": {
       "host01": [
-        {"file": "datakit.yaml", "target": "/root", "chmod": "+w"}
+        {"file": "datakit.yaml", "target": "/root", "chmod": "+w"},
+        {"file": "components.yaml", "target": "/root", "chmod": "+w"},
+        {"file": "datakit-operator.yaml", "target": "/root", "chmod": "+w"}
       ]
     },
     "finish": {
