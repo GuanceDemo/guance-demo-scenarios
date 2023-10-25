@@ -9,5 +9,10 @@ cd guance-java-ruoyi-demo
 helm upgrade -i ruoyi -n ruoyi --create-namespace ./deployment/helm
 ```{{exec}}
 
-## 访问
+## 查看状态
+```plain
+kubectl get pod -n ruoyi
+```{{exec}}
+
+## 访问地址
 [ruoyi-java-demo]({{TRAFFIC_HOST1_30001}})
