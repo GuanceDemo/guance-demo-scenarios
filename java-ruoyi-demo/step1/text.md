@@ -14,6 +14,11 @@ kubectl apply -f datakit-operator.yaml
 - 更新 datakit.yaml 中的 ENV_DATAWAY
 > 获取方式：登陆观测云空间 --> 集成 --> DataKit
 
+
+```shell
+vim datakit.yaml
+```
+找到 ENV_DATAWAY 并修改
 ``` shell
 - name: ENV_DATAWAY
   value: https://openway.guance.com?token=<your-token> # 此处填上 您的 DataWay 和 token 信息
