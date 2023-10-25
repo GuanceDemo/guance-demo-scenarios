@@ -1,4 +1,3 @@
-# 安装观测云采集器
 ## 安装 Metrics-Server
 ```plain
 kubectl apply -f components.yaml
@@ -14,10 +13,10 @@ kubectl apply -f datakit-operator.yaml
 - 更新 datakit.yaml 中的 ENV_DATAWAY
 > 获取方式：登陆观测云空间 --> 集成 --> DataKit
 
-
-```shell
+```plain
 vim datakit.yaml
-```
+```{{exec}}
+
 找到 ENV_DATAWAY 并修改
 ``` shell
 - name: ENV_DATAWAY

@@ -7,9 +7,14 @@
     },
     "steps": [
       {
-        "title": "Apply DataKit",
+        "title": "安装观测云采集器",
         "text": "step1/text.md",
         "verify": "step1/verify.sh"
+      },
+      {
+        "title": "部署 Java Demo",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
       }
     ],
     "assets": {
