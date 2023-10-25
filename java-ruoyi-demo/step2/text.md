@@ -10,4 +10,4 @@ helm upgrade -i ruoyi -n ruoyi --create-namespace ./deployment/helm
 ```{{exec}}
 
 ## 访问
-[ruoyi-java-demo]({{TRAFFIC_HOST2_30001}})
+[ruoyi-java-demo]({{TRAFFIC_HOST1_30001}})
