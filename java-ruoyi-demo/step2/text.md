@@ -15,7 +15,7 @@ docker_namespace: harlonhuang
 ```
 
 ## 去掉污点设置
-> 因安装资源较大，取消 master 界面的污点
+> 因安装资源较大，取消 master 节点的污点
 
 ```plain
 kubectl taint node controlplane node-role.kubernetes.io/control-plane-
