@@ -34,4 +34,4 @@ kubectl get pod -n ruoyi
 ```{{exec}}
 
 ## 访问地址
-[ruoyi-java-demo]({{TRAFFIC_HOST1_30001}})
+[ruoyi-java-demo]({{TRAFFIC_HOST2_30001}})
