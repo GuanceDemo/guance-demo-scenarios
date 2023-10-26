@@ -14,14 +14,6 @@ docker_registry: ghcr.io
 docker_namespace: harlonhuang
 ```
 
-## 去掉污点设置
-> 因安装资源较大，取消 master 节点的污点
-
-```plain
-kubectl taint node controlplane node-role.kubernetes.io/control-plane-
-```{{exec}}
-
-
 ## 安装部署
 ```plain
 cd guance-java-ruoyi-demo
@@ -33,5 +25,15 @@ helm upgrade -i ruoyi -n ruoyi --create-namespace ./deployment/helm
 kubectl get pod -n ruoyi
 ```{{exec}}
 
+
+## 去掉污点设置（可选）
+> 因安装资源较大，取消 master 节点的污点
+
+```plain
+kubectl taint node controlplane node-role.kubernetes.io/control-plane-
+```{{exec}}
+
+
 ## 访问地址
-[ruoyi-java-demo]({{TRAFFIC_HOST2_30001}})
+[ruoyi-java-demo1]({{TRAFFIC_HOST1_30001}})
+[ruoyi-java-demo2]({{TRAFFIC_HOST2_30001}})
