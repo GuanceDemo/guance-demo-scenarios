@@ -148,9 +148,21 @@ spec:
         app: ruoyi-admin
       annotations:
         admission.datakit/java-lib.version: ""
+        datakit/ruoyi-admin.logs: |
+          [
+            {
+              "disable": false,
+              "type": "file",
+              "path":"/home/ruoyi/logs/*.log",
+              "source":  "ruoyi-admin",
+              "tags" : {
+                "env": "prod"
+              }
+            }
+          ]
     spec:
       containers:
-        - name: admin-container
+        - name: ruoyi-admin
           env:
             - name: POD_NAME
               valueFrom:
@@ -174,15 +186,13 @@ spec:
             - containerPort: 8080
               protocol: TCP
           volumeMounts:
-            - name: auth-log
-              mountPath: /data/app/logs
+            - name: admin-log
+              mountPath: /home/ruoyi/logs
 
       restartPolicy: Always
       volumes:
-        - name: auth-log
-          hostPath:
-            path: /data/logs
-            type: DirectoryOrCreate
+        - name: admin-log
+          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
