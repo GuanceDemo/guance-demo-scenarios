@@ -22,6 +22,7 @@
         {"file": "datakit.yaml", "target": "/root", "chmod": "+w"},
         {"file": "components.yaml", "target": "/root", "chmod": "+w"},
         {"file": "datakit-operator.yaml", "target": "/root", "chmod": "+w"}
+        {"file": "ruoyi-demo.yaml", "target": "/root", "chmod": "+w"}
       ]
     },
     "finish": {
