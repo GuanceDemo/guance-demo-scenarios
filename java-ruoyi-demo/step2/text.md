@@ -1,5 +1,6 @@
 ## 安装部署
 ```plain
+kubectl create ns ruoyi-demo
 kubectl apply -f ruoyi-demo.yaml
 ```{{exec}}
 
