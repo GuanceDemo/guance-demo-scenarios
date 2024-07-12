@@ -113,6 +113,8 @@ spec:
           value: https://openway.guance.com?token=<token>
         - name: ENV_GLOBAL_TAGS
           value: host=__datakit_hostname,host_ip=__datakit_ip,cluster_name_k8s=k8s-demo
+        - name: ENV_CLUSTER_NAME_K8S
+          value: k8s-demo
         - name: ENV_NAMESPACE
           value: k8s-demo
         - name: ENV_GLOBAL_ELECTION_TAGS

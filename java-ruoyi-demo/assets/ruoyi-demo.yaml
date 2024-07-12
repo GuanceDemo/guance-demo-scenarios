@@ -164,22 +164,12 @@ spec:
       containers:
         - name: ruoyi-admin
           env:
-            - name: POD_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.name
-            - name: MY_NODE_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: spec.nodeName
-            - name: DD_AGENT_HOST
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: status.hostIP
-            - name: JAVA_OPTS
-              value: |-
-                -Ddd.service=ruoyi-admin  -Ddd.profiling.enabled=true -Ddd.profiling.allocation.enabled=true -Ddd.tags=container_host:\$(POD_NAME) -Ddd.service.mapping=mysql:ruoyi-mysql,redis:ruoyi-redis -Ddd.env=prod -Ddd.agent.port=9529
+            - name: DD_SERVICE
+              value: ruoyi-admin
+            - name: DD_ENV
+              value: prod
+            - name: DD_PROFILING_ENABLED
+              value: true
           image: pubrepo.jiagouyun.com/demo/ruoyi-single-admin:1.0
           imagePullPolicy: IfNotPresent
           ports:
