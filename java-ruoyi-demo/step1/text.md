@@ -1,8 +1,3 @@
-## 安装 Metrics-Server
-```plain
-kubectl apply -f components.yaml
-```{{exec}}
-
 ## 安装 DataKit Operator
 ```plain
 kubectl create ns datakit

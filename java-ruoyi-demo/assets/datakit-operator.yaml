@@ -1,4 +1,4 @@
-## Datakit-Operator v1.4.2 Configuration YAML
+## Datakit-Operator v1.5.10 Configuration YAML
 ---
 apiVersion: v1
 kind: Service
@@ -25,25 +25,39 @@ data:
         "log_level":     "info",
         "admission_inject": {
             "ddtrace": {
+                "enabled_namespaces":     [{
+                  "namespace": "ruoyi-demo",
+                  "language": "java"
+                }],
+                "enabled_labelselectors": [],
                 "images": {
-                    "java_agent_image":   "ghcr.io/harlonhuang/dd-lib-java-init:v1.20.2-guance",
-                    "python_agent_image": "pubrepo.guance.com/datakit-operator/dd-lib-python-init:v1.6.2",
-                    "js_agent_image":     "pubrepo.guance.com/datakit-operator/dd-lib-js-init:v3.9.2"
+                    "java_agent_image": "pubrepo.guance.com/datakit-operator/dd-lib-java-init:v1.36.2-guance"
                 },
                 "envs": {
                     "DD_AGENT_HOST":           "datakit-service.datakit.svc",
                     "DD_TRACE_AGENT_PORT":     "9529",
                     "DD_JMXFETCH_STATSD_HOST": "datakit-service.datakit.svc",
                     "DD_JMXFETCH_STATSD_PORT": "8125",
+                    "DD_SERVICE":              "{fieldRef:metadata.labels['app']}",
                     "POD_NAME":                "{fieldRef:metadata.name}",
                     "POD_NAMESPACE":           "{fieldRef:metadata.namespace}",
                     "NODE_NAME":               "{fieldRef:spec.nodeName}",
-                    "DD_TAGS":                 "pod_name:$(POD_NAME),pod_namespace:$(POD_NAMESPACE),host:$(NODE_NAME)"
+                    "DD_TAGS":                 "pod_name:$(POD_NAME),pod_namespace:$(POD_NAMESPACE),host:$(NODE_NAME)",
+                    "DD_PROFILING_ENABLED": "true",
+                    "DD_PROFILING_DDPROF_ENABLED": "true",
+                    "DD_PROFILING_DDPROF_CPU_ENABLED": "true",
+                    "DD_PROFILING_DDPROF_WALL_ENABLED": "true",
+                    "DD_PROFILING_DDPROF_ALLOC_ENABLED": "true",
+                    "DD_PROFILING_DDPROF_LIVEHEAP_ENABLED": "true",
+                    "DD_PROFILING_DDPROF_MEMLEAK_ENABLED": "true"
                 }
             },
             "logfwd": {
+                "options": {
+                    "reuse_exist_volume": "false"
+                },
                 "images": {
-                    "logfwd_image": "pubrepo.guance.com/datakit/logfwd:1.15.2"
+                    "logfwd_image": "pubrepo.guance.com/datakit/logfwd:1.26.0"
                 },
                 "envs": {
                     "LOGFWD_GLOBAL_SERVICE": "{fieldRef:metadata.labels['app']}",
@@ -53,9 +67,9 @@ data:
             },
             "profiler": {
                 "images": {
-                    "java_profiler_image":   "pubrepo.jiagouyun.com/datakit-operator/async-profiler:0.1.0",
-                    "python_profiler_image": "pubrepo.jiagouyun.com/datakit-operator/py-spy:0.1.0",
-                    "golang_profiler_image": "pubrepo.jiagouyun.com/datakit-operator/pprof:0.1.0"
+                    "java_profiler_image":   "pubrepo.guance.com/datakit-operator/async-profiler:0.1.0",
+                    "python_profiler_image": "pubrepo.guance.com/datakit-operator/py-spy:0.1.0",
+                    "golang_profiler_image": "pubrepo.guance.com/datakit-operator/pprof:0.1.0"
                 },
                 "envs": {
                     "DK_AGENT_HOST":  "datakit-service.datakit.svc",
@@ -88,7 +102,7 @@ spec:
     spec:
       containers:
         - name: operator
-          image: ghcr.io/harlonhuang/datakit-operator:v1.4.2
+          image: pubrepo.guance.com/datakit-operator/datakit-operator:v1.5.10
           imagePullPolicy: Always
           env:
           - name: ENV_JSON_CONFIG
@@ -102,10 +116,10 @@ spec:
           resources:
             requests:
               cpu: "100m"
-              memory: "128Mi"
+              memory: "64Mi"
             limits:
               cpu: "500m"
-              memory: "1024Mi"
+              memory: "512Mi"
 ---
 apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration

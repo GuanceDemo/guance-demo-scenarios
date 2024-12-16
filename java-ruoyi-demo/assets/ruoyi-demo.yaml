@@ -147,7 +147,6 @@ spec:
       labels:
         app: ruoyi-admin
       annotations:
-        admission.datakit/java-lib.version: ""
         datakit/ruoyi-admin.logs: |
           [
             {
@@ -162,14 +161,7 @@ spec:
           ]
     spec:
       containers:
-        - name: ruoyi-admin
-          env:
-            - name: DD_SERVICE
-              value: ruoyi-admin
-            - name: DD_ENV
-              value: prod
-            - name: DD_PROFILING_ENABLED
-              value: true
+        - name: ruoyi-admin 
           image: pubrepo.jiagouyun.com/demo/ruoyi-single-admin:1.0
           imagePullPolicy: IfNotPresent
           ports:
