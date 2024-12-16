@@ -221,12 +221,10 @@ spec:
     spec:
       containers:
         - env:
-            - name: PODE_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.name
+            - name: CLIENT_TOKEN
+              value: <YOUR-WORKSPACE-CLIENT-TOKEn>
           name: ruoyi-web
-          image: pubrepo.jiagouyun.com/demo/ruoyi-single-web:1.0
+          image: pubrepo.jiagouyun.com/demo/ruoyi-single-web:2.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
