@@ -19,6 +19,7 @@ kubectl apply -f ruoyi-demo.yaml
 ```{{exec}}
 
 ## 查看状态
+首次拉取镜像可能需要等待约 2~3 分钟，请耐心等待。
 ```plain
 kubectl get pod -n ruoyi-demo
 ```{{exec}}

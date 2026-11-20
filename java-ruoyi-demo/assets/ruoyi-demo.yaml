@@ -59,7 +59,7 @@ spec:
         prod: mysql
     spec:
       containers:
-        - image: pubrepo.jiagouyun.com/demo/ruoyi-single-mysql:1.0
+        - image: pubrepo.guance.com/demo/ruoyi-single-mysql:1.0
           name: ruoyi-mysql
           env:
             # 在实际中使用 secret
@@ -97,7 +97,7 @@ spec:
         - name: ruoyi-redis
           ports:
             - containerPort: 6379
-          image: pubrepo.jiagouyun.com/demo/ruoyi-single-redis:1.0
+          image: pubrepo.guance.com/demo/ruoyi-single-redis:1.0
           imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1
@@ -162,7 +162,7 @@ spec:
     spec:
       containers:
         - name: ruoyi-admin 
-          image: pubrepo.jiagouyun.com/demo/ruoyi-single-admin:1.0
+          image: pubrepo.guance.com/demo/ruoyi-single-admin:1.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
@@ -224,7 +224,7 @@ spec:
             - name: CLIENT_TOKEN
               value: <YOUR-WORKSPACE-CLIENT-TOKEn>
           name: ruoyi-web
-          image: pubrepo.jiagouyun.com/demo/ruoyi-single-web:2.0
+          image: pubrepo.guance.com/demo/ruoyi-single-web:2.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
